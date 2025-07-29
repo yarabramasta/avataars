@@ -24,7 +24,11 @@ function getImageFromHash(seedHash: string, baseUrl: string): string {
 	const index = parseInt(seedHash.substring(0, 8), 16) % 10;  // Assume we have 10 SVG images
 
 	// Map index to corresponding SVG filename
-	const svgAssets = Array.from({ length: 20 }, (_, i) => `${baseUrl}/hand-drawn-avatar-0${i + 1}.png`);
+	const svgAssets = Array.from({ length: 20 }, (_, i) => {
+		const index = i + 1;
+		const paddedIndex = index.toString().padStart(2, '0');
+		return `${baseUrl}/hand-drawn-avatar-${paddedIndex}.png`;
+	});
 
 	return svgAssets[index];  // Return the selected SVG filename
 }
