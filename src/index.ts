@@ -64,7 +64,7 @@ export default {
 		headers.set('Content-Type', 'image/png');  // Set the content type to PNG
 
 		// Cache the image for subsequent requests
-		const cacheControl = 'public, max-age=86400';  // Cache for 24 hours (86400 seconds)
+		const cacheControl = 'public, max-age=31536000';  // Cache for 365 days
 		headers.set('Cache-Control', cacheControl);  // Set the cache control header
 
 		// Put the fetched image in cache
